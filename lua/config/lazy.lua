@@ -51,3 +51,22 @@ require("lazy").setup({
     },
   },
 })
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("go").setup({
+  lsp_cfg = false,
+  -- other setups...
+})
+local cfg = require("go.lsp").config() -- config() return the go.nvim gopls setup
+
+require("lspconfig").gopls.setup(cfg)
+
+local navic = require("nvim-navic")
+
+require("lspconfig").gopls.setup({
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end,
+})
+
