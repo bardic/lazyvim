@@ -39,14 +39,33 @@ require("lazy").setup({
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
-        "tarPlugin",
+        "2html_plugin",
         "tohtml",
-        "tutor",
+        "getscript",
+        "getscriptPlugin",
+        "gzip",
+        "logipat",
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
+        "matchit",
+        "tar",
+        "tarPlugin",
+        "rrhelper",
+        "spellfile_plugin",
+        "vimball",
+        "vimballPlugin",
+        "zip",
         "zipPlugin",
+        "tutor",
+        "rplugin",
+        "syntax",
+        "synmenu",
+        "optwin",
+        "compiler",
+        "bugreport",
+        "ftplugin",
       },
     },
   },
@@ -54,14 +73,6 @@ require("lazy").setup({
 
 require("mason").setup()
 require("mason-lspconfig").setup()
-require("go").setup({
-  lsp_cfg = false,
-  -- other setups...
-})
-local cfg = require("go.lsp").config() -- config() return the go.nvim gopls setup
-
-require("lspconfig").gopls.setup(cfg)
-
 local navic = require("nvim-navic")
 
 require("lspconfig").gopls.setup({
@@ -69,4 +80,3 @@ require("lspconfig").gopls.setup({
     navic.attach(client, bufnr)
   end,
 })
-
