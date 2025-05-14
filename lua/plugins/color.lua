@@ -1,14 +1,14 @@
 return {
   {
-    "EdenEast/nightfox.nvim",
-    name = "nightfox",
+    "sainnhe/sonokai",
+    lazy = false,
     priority = 1000,
+    config = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.sonokai_enable_italic = true
+      vim.cmd.colorscheme("sonokai")
+    end,
   },
   { "nvim-tree/nvim-web-devicons", opts = {} },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "nordfox",
-    },
-  },
 }
